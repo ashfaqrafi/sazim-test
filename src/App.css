@@ -1,38 +1,142 @@
-.App {
-  text-align: center;
+* {
+  box-sizing: border-box;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+a {
+  text-decoration: none;
+  color: black;
+  font-weight: 500;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.container {
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+.primary-button {
+  border-radius: 3px;
+  border: none;
   color: white;
+  background-color: #6562f5;
+  padding: 0.5rem 1rem;
+  font-size: 16px;
+  cursor: pointer;
+  box-sizing: border-box;
 }
 
-.App-link {
-  color: #61dafb;
+.filter-button {
+  border-radius: 3px;
+  border: none;
+  color: white;
+  background-color: #6562f5;
+  padding: 0.25rem 1rem;
+  font-size: 16px;
+  cursor: pointer;
+  box-sizing: border-box;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.primary-button:hover {
+  border-radius: 3px;
+  border: 1px solid #6562f5;
+  color: #6562f5;
+  background-color: white;
+  padding: 0.5rem 1rem;
+  font-size: 16px;
+  cursor: pointer;
+  box-sizing: border-box;
+}
+
+.primary-button a {
+  color: white;
+  text-decoration: none;
+  box-sizing: border-box;
+}
+
+.primary-button a:hover {
+  color: #6562f5;
+  text-decoration: none;
+  box-sizing: border-box;
+}
+
+input {
+  width: 100%;
+  border-color: #c5ced6;
+  border-width: 1px;
+  background-color: none;
+  border-style: solid;
+  padding: 0.5rem;
+  box-sizing: border-box;
+  border-radius: 3px;
+}
+
+select::-ms-expand {
+  display: none;
+}
+
+select {
+  display: inline-block;
+  box-sizing: border-box;
+  padding: 0.5rem;
+  border: 1px solid #c5ced6;
+  border-radius: 3px;
+  font: inherit;
+  line-height: inherit;
+  margin-top: 5px;
+  width: 100%;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -ms-appearance: none;
+  appearance: none;
+  background-repeat: no-repeat;
+  background-image: linear-gradient(45deg, transparent 50%, currentColor 50%),
+    linear-gradient(135deg, currentColor 50%, transparent 50%);
+  background-position: right 15px top 1em, right 10px top 1em;
+  background-size: 5px 5px, 5px 5px;
+}
+
+.country-list-items div {
+  padding: 1rem;
+  border: 1px solid #c3cfd9;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.secondary-button {
+  border-radius: 3px;
+  border: 1px solid #6562f5;
+  color: #6562f5;
+  background-color: white;
+  padding: 0.5rem 1rem;
+  font-size: 16px;
+  cursor: pointer;
+  box-sizing: border-box;
+}
+
+.secondary-button:hover {
+  border-radius: 3px;
+  border: none;
+  color: white;
+  background-color: #6562f5;
+  padding: 0.5rem 1rem;
+  font-size: 16px;
+  cursor: pointer;
+  box-sizing: border-box;
+}
+
+.close-button {
+  border-radius: 3px;
+  border: 1px solid #6562f5;
+  color: #6562f5;
+  background-color: white;
+  padding: 0.25rem 1rem;
+  font-size: 16px;
+  cursor: pointer;
+  box-sizing: border-box;
+}
+
+.sort-button {
+  border: 1px solid #c3cfd9;
+  width: 100%;
 }
