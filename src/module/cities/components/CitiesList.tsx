@@ -55,7 +55,7 @@ export default function CitiesList({
           marginBottom: "20px",
         }}
       >
-        <div>List of cities</div>
+        <div style={{ fontSize: "18px" }}>List of cities</div>
         <div style={{ display: "flex", alignItems: "center" }}>
           <div style={{ marginRight: "1rem" }}>
             <ToggleState

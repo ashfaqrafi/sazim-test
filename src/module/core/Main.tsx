@@ -19,7 +19,7 @@ export const Main = (): JSX.Element => {
       <>
         <MainContainer>
           <div style={{ textAlign: "center" }}>
-            <b>GEO SOFTWARE</b>
+            <b style={{ fontSize: "24px" }}>GEO SOFTWARE</b>
           </div>
           <div>
             <div>

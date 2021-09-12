@@ -26,7 +26,7 @@ export default function RegionList({ regions }: { regions: any }): JSX.Element {
           marginBottom: "10px",
         }}
       >
-        <div>List of regions</div>
+        <div style={{ fontSize: "18px" }}>List of regions</div>
         <div style={{ display: "flex", alignItems: "center" }}>
           <div style={{ position: "relative", marginRight: "1rem" }}>
             <input

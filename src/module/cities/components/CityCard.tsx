@@ -1,7 +1,6 @@
 import React from "react";
 import axios from "axios";
 import { FaPlus } from "react-icons/fa";
-// import moment from "moment";
 const timeout = 30000;
 
 export default function CityCard({

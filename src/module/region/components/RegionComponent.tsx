@@ -45,10 +45,10 @@ export default function RegionComponent() {
       }}
     >
       <div style={{ display: "flex", justifyContent: "space-between" }}>
-        <p>Country Selected: {countryName}</p>
-        <p>
+        <h5>Country Selected: {countryName}</h5>
+        <h5>
           Total number of regions: {regionData?.metadata?.totalCount || "N/A"}
-        </p>
+        </h5>
       </div>
       <div>
         {regions && regions.length > 0 ? (

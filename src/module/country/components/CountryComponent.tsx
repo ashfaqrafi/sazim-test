@@ -108,12 +108,10 @@ function CountryComponent() {
           </form>
         )}
       </Formik>
-      {countries && countries.length > 0 ? (
+      {countries && countries.length > 0 && (
         <div>
           <CountryList countries={countries as any} />
         </div>
-      ) : (
-        <p>No Countries Found</p>
       )}
     </div>
   );

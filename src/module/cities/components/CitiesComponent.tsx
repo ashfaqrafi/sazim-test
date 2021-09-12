@@ -47,8 +47,10 @@ export default function CitiesComponent() {
       }}
     >
       <div style={{ display: "flex", justifyContent: "space-between" }}>
-        <p>Region Selected: {regionName}</p>
-        <p>Total number of cities: {cityData?.metadata?.totalCount || "N/A"}</p>
+        <h5>Region Selected: {regionName}</h5>
+        <h5>
+          Total number of cities: {cityData?.metadata?.totalCount || "N/A"}
+        </h5>
       </div>
       <div>
         <div>
