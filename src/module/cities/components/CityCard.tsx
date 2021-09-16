@@ -62,7 +62,7 @@ export default function CityCard({
           <p>Longitude: {item.longitude}</p>
           <p>Latitude: {item.latitude}</p>
           <p>Population: {item.population}</p>
-          <p>Time: {showTimeZone ?? "N/A"}</p>
+          <p>Time: {showTimeZone ? showTimeZone : "N/A"}</p>
         </div>
       ) : (
         <div

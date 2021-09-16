@@ -17,6 +17,8 @@ export default function AdvancedFilter({
   const [selectedTypes, setSelectedTypes] = React.useState("");
   const [selectedSort, setSelectedSort] = React.useState("");
 
+  console.log({ filteredData });
+
   const formik = useFormik({
     initialValues: {
       keyword: "",
@@ -69,8 +71,6 @@ export default function AdvancedFilter({
       }
     },
   });
-
-  localStorage.setItem("filteredData", JSON.stringify(filteredData));
 
   return (
     <FormikProvider value={formik}>

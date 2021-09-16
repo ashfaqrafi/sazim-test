@@ -19,12 +19,23 @@ export default function CitiesList({
   const [sortType, setSortType] = React.useState("");
   const [selectedCity, setSelectedCity] = React.useState<any | null>(null);
 
-  console.log(filter);
   console.log(selectedCity);
 
   const sorted = cities.sort((a: { name: string }, b: { name: any }) => {
     const isReversed = sortType === "asc" ? 1 : -1;
     return isReversed * a.name.localeCompare(b.name);
+  });
+
+  const searchFilter = (event: any) => {
+    setFilter(event.target.value);
+  };
+  const lowercasedFilter = filter.toLowerCase();
+  const filterData = sorted?.filter((item: any) => {
+    return Object.keys(item).some(
+      (key) =>
+        typeof item[key] === "string" &&
+        item[key].toLowerCase().includes(lowercasedFilter)
+    );
   });
 
   const onSort = (sortType: React.SetStateAction<string>) => {
@@ -40,10 +51,6 @@ export default function CitiesList({
   const hide = () => setVisible(false);
 
   useTimeout(hide, 30000);
-
-  const filteredData = localStorage.getItem("filteredData");
-
-  console.log(filteredData);
 
   return (
     <div style={{ marginTop: "3rem" }}>
@@ -98,9 +105,7 @@ export default function CitiesList({
               placeholder="Filter"
               name="namePrefix"
               style={{ padding: "0.35rem" }}
-              onChange={(e: any) => {
-                setFilter(e.target.value);
-              }}
+              onChange={searchFilter}
             />
             <div style={{ position: "absolute", top: "5px", right: "5px" }}>
               <BsSearch size="16" />
@@ -148,8 +153,8 @@ export default function CitiesList({
       <div>
         <div>
           <div className="row">
-            {cities &&
-              sorted.map((item: any, index: number) => (
+            {cities ? (
+              filterData.map((item: any, index: number) => (
                 <div className="col-lg-3" key={index}>
                   <CityCard
                     item={item}
@@ -157,7 +162,10 @@ export default function CitiesList({
                     getSelectedCity={getSelectedCity}
                   />
                 </div>
-              ))}
+              ))
+            ) : (
+              <p>No cities found</p>
+            )}
           </div>
         </div>
       </div>

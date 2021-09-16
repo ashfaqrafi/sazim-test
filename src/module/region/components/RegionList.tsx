@@ -6,11 +6,21 @@ export default function RegionList({ regions }: { regions: any }): JSX.Element {
   const [filter, setFilter] = React.useState("");
   const [sortType, setSortType] = React.useState("");
 
-  console.log(filter);
-
   const sorted = regions.sort((a: { name: string }, b: { name: any }) => {
     const isReversed = sortType === "asc" ? 1 : -1;
     return isReversed * a.name.localeCompare(b.name);
+  });
+
+  const searchFilter = (event: any) => {
+    setFilter(event.target.value);
+  };
+  const lowercasedFilter = filter.toLowerCase();
+  const filterData = sorted?.filter((item: any) => {
+    return Object.keys(item).some(
+      (key) =>
+        typeof item[key] === "string" &&
+        item[key].toLowerCase().includes(lowercasedFilter)
+    );
   });
 
   const onSort = (sortType: React.SetStateAction<string>) => {
@@ -34,9 +44,7 @@ export default function RegionList({ regions }: { regions: any }): JSX.Element {
               placeholder="Filter"
               name="namePrefix"
               style={{ padding: "0.35rem" }}
-              onChange={(e: any) => {
-                setFilter(e.target.value);
-              }}
+              onChange={searchFilter}
             />
             <div style={{ position: "absolute", top: "5px", right: "5px" }}>
               <BsSearch size="16" />
@@ -81,8 +89,8 @@ export default function RegionList({ regions }: { regions: any }): JSX.Element {
         </div>
       </div>
       <div className="country-list-items">
-        {regions &&
-          sorted.map((item: any, index: number) => (
+        {regions ? (
+          filterData.map((item: any, index: number) => (
             <div key={index}>
               <Link
                 style={{ display: "block" }}
@@ -91,7 +99,10 @@ export default function RegionList({ regions }: { regions: any }): JSX.Element {
                 {item.name}
               </Link>
             </div>
-          ))}
+          ))
+        ) : (
+          <p>No regions found</p>
+        )}
       </div>
       <div
         style={{ marginTop: "20px", display: "flex", justifyContent: "center" }}
